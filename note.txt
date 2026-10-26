@@ -1,0 +1,8 @@
+10^8 10^9 > 1 second (long long)
+
+kiểm tra nguyên tố, nhiều lần nhưng n <= 10^6
+cần tối ưu
+
+A -> n lớn
+n nhỏ
+A -> chưa chắc tốt hơn B
