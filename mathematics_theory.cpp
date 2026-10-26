@@ -23,6 +23,16 @@ int tonguoc(int a) { //tính tổng ước
     }
     return sum;
 }
+long long binpow(long long a, long long b) { //luỹ thừa siêu nhanh (tối ưu)
+	long long ans = 1;
+	a %= MOD;
+	while (b>0) {
+		if (b%2==1) ans = (ans*a)%MOD;
+		b/=2;
+		a = a*a%MOD;
+	}
+	return ans;
+}
 int gcd1(int a, int b) { //ước chung lớn nhất
 	while (b) {
 		int du = a%b;
@@ -82,7 +92,14 @@ long long bac_legendre(int n, int p) { //công thức bậc theo kiểu legendre
     }
     return ans;
 }
-
+bool rev(int n) { //số thuận nghịch
+    int N = n, rev = 0;
+    while (n) {
+        rev = rev*10 + n%10;
+        n/=10;
+    }
+    return N == rev;
+}
 
 
 
@@ -90,6 +107,5 @@ int main(){
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 	cout.tie(NULL);
-    cout << bac_basic(20,3) << " " << bac_legendre(20,3);
-	return 0;
+    //test here;
 }

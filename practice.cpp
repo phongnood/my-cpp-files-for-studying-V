@@ -3,7 +3,7 @@
 using namespace std;
 const int MOD = 1000000007;
 
-int fact(int n) {
+int factcount(int n) { // đếm ước nguyên tố
 	int count = 0;
 	for (int i = 2;i<=sqrt(n);i++) {
 		if (n%i==0) {
@@ -18,15 +18,17 @@ int fact(int n) {
 	}
 	return count;
 }
+
+
 int main(){
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 	cout.tie(NULL);
-    int T;cin>>T;
-	long long ans = 1;
-	while (T--) {
-		int p,e;cin>>p>>e;
-		ans = ans * (e+1)%MOD;
+    long long n;cin>>n;
+	long long gt = 1;
+	for (int i = 1;i<=n;i++) {
+		gt*=i;
 	}
-	cout << ans;
+	cout << gt;
+    cout << factcount(gt);
 }
