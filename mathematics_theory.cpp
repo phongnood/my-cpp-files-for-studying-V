@@ -47,9 +47,9 @@ int lcm1(int a, int b) { //bội chung nhỏ nhất
 void fact1(int n) { //phân tích số nguyên tố, VD: 15 = 3 * 5, 12 = 2^2 * 3//
 	for (int i = 2;i<=sqrt(n);i++) {
         if (n%i==0) {
-            //dem++; nếu phải đếm mũ
+            //dem = 0;
             while (n%i==0) {
-                cout << i << " ";
+                cout << i << " ";//dem++; nếu phải đếm mũ
                 n/=i;
             }
             //cout << i << "^" << dem;

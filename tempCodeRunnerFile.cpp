@@ -3,25 +3,27 @@
 using namespace std;
 const int MOD = 1000000007;
 
-long long tonguoc(long long a) { //tính tổng ước
-    long long sum = 0;
-    for (int i = 1;i<=sqrt(a);i++) {
-        if (a%i==0) {
-            sum += i;
-            //i : a/i;
-            if (i!=a/i) {
-                sum+=a/i;
-            }
-        }
-    }
-    return sum;
+long long binpow(long long a, long long b) { //luỹ thừa siêu nhanh (tối ưu)
+	long long ans = 1;
+	a %= MOD;
+	while (b>0) {
+		if (b%2==1) ans = (ans*a)%MOD;
+		b/=2;
+		a = a*a%MOD;
+	}
+	return ans;
 }
 
+void solve(int n) {
+	long long first = binpow(8,n), second = 10 * first;
+	cout << (first % second) % 10; 
+}
 
 int main(){
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 	cout.tie(NULL);
-    long long n;cin>>n;
-    cout << tonguoc(n);
+	long long n;cin>>n;
+	solve(n);
+	return 0;
 }

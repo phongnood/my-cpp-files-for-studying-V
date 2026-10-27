@@ -3,32 +3,27 @@
 using namespace std;
 const int MOD = 1000000007;
 
-int factcount(int n) { // đếm ước nguyên tố
-	int count = 0;
-	for (int i = 2;i<=sqrt(n);i++) {
-		if (n%i==0) {
-			count++;
-			while (n%i==0) {
-				n/=i;
-			}
-		}
+long long binpow(long long a, long long b) { //luỹ thừa siêu nhanh (tối ưu)
+	long long ans = 1;
+	a %= MOD;
+	while (b>0) {
+		if (b%2==1) ans = (ans*a)%MOD;
+		b/=2;
+		a = a*a%MOD;
 	}
-	if (n!=1) {
-		count++;
-	}
-	return count;
+	return ans;
 }
 
+void solve(long long n) {
+	long long power = binpow(8,n);
+	cout << power; 
+}
 
 int main(){
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 	cout.tie(NULL);
-    long long n;cin>>n;
-	long long gt = 1;
-	for (int i = 1;i<=n;i++) {
-		gt*=i;
-	}
-	cout << gt;
-    cout << factcount(gt);
+	long long n;cin>>n;
+	solve(n);
+	return 0;
 }
