@@ -2,6 +2,16 @@
 
 using namespace std;
 const int MOD = 1000000007;
+
+bool prime(int n) { //kiểm tra số nguyên tố
+    if (n < 2) return false;
+    for (int i = 2;i<=sqrt(n);i++) {
+        if (n%i==0) {
+            return false;
+        }
+    }
+    return true;
+}
 int getsum(int a) { //tính tổng chữ số của số nguyên
     int sum = 0;
     while (a) {

@@ -3,27 +3,22 @@
 using namespace std;
 const int MOD = 1000000007;
 
-long long binpow(long long a, long long b) { //luỹ thừa siêu nhanh (tối ưu)
-	long long ans = 1;
-	a %= MOD;
-	while (b>0) {
-		if (b%2==1) ans = (ans*a)%MOD;
-		b/=2;
-		a = a*a%MOD;
-	}
-	return ans;
-}
-
-void solve(long long n) {
-	long long power = binpow(8,n);
-	cout << power; 
-}
-
 int main(){
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 	cout.tie(NULL);
-	long long n;cin>>n;
-	solve(n);
+	int a[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+	int n = 7;
+	for (int i = 0; i<n;i++) {
+		for (int j = 0; j<i;j++) {
+			cout << a[i] << " " << a[j] << endl;
+		}
+	}
+	cout << endl;
+	for (int i = 0; i<n;i++) {
+		for (int j = i+1; j<n;j++) {
+			cout << a[i] << " " << a[j] << endl;
+		}
+	}
 	return 0;
 }
