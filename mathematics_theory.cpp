@@ -2,6 +2,7 @@
 
 using namespace std;
 const int MOD = 1000000007;
+long long fibo[94] = { 0 }; //fibonacci
 
 bool prime(int n) { //kiểm tra số nguyên tố
     if (n < 2) return false;
@@ -98,7 +99,7 @@ int bac_basic(int n, int p){ //công thức bậc cơ bản
 long long bac_legendre(int n, int p) { //công thức bậc theo kiểu legendre
     long long ans = 0;
     for (long long i = p;i<=n;i*=p) {
-        ans += n / i;
+        ans += n / i; // ans = ans + (n/i);
     }
     return ans;
 }
@@ -110,7 +111,26 @@ bool rev(int n) { //số thuận nghịch
     }
     return N == rev;
 }
-
+void generate_fibonacci() { // khởi tạo giá trị fibonacci
+    //dựa vào đề bài đê khởi tạo fibonacci
+    fibo[0] = 0;
+    fibo[1] = 1;
+    fibo[2] = 1;
+    for (int i = 3; i<94;i++) {
+        fibo[i] = fibo[i-1] + fibo[i-2];
+        // f(n) = f(n-1) + f(n-2); --ví dụ đề bài--
+    }
+    //purpose: khởi tạo giá trị fibonacci theo đề bài, để xuất ra các giá trị liên tiếp của nó
+}
+bool isFibonacci(long long value) { //kiểm tra xem có phải là giá trị fibonacci không
+    for (int i = 0;i<94;i++) {
+        if (fibo[i] == value) {
+            return true;
+        }
+    }
+    return false;
+    //purpose: dùng để kiểm tra xem giá trị nào đó có thuộc giá trị fibonacci không
+}
 
 
 int main(){
