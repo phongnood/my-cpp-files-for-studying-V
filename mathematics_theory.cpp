@@ -115,8 +115,7 @@ void generate_fibonacci() { // khởi tạo giá trị fibonacci
     //dựa vào đề bài đê khởi tạo fibonacci
     fibo[0] = 0;
     fibo[1] = 1;
-    fibo[2] = 1;
-    for (int i = 3; i<94;i++) {
+    for (int i = 2; i<94;i++) {
         fibo[i] = fibo[i-1] + fibo[i-2];
         // f(n) = f(n-1) + f(n-2); --ví dụ đề bài--
     }
