@@ -4,6 +4,15 @@ using namespace std;
 const int MOD = 1000000007;
 long long fibo[94] = { 0 }; //fibonacci
 
+int chuso(long long n) {
+    if (n == 0) return 1;
+    int count = 0;
+    while (n > 0) {
+        count++;
+        n /= 10;
+    }
+    return count;
+}
 bool prime(int n) { //kiểm tra số nguyên tố
     if (n < 2) return false;
     for (int i = 2;i<=sqrt(n);i++) {
@@ -38,9 +47,9 @@ long long binpow(long long a, long long b) { //luỹ thừa siêu nhanh (tối �
 	long long ans = 1;
 	a %= MOD;
 	while (b>0) {
-		if (b%2==1) ans = (ans*a)%MOD;
+		if (b%2==1) ans = (ans*a);
 		b/=2;
-		a = a*a%MOD;
+		a = a*a;
 	}
 	return ans;
 }
