@@ -1,35 +1,43 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <climits>
+#include <algorithm>
+#include <numeric>
+#include <vector>
 
 using namespace std;
-const int MOD = 1000000007;
-int a[1005];
 
-bool prime(int n) {
-    if (n < 2) return false;
-    for (int i = 2;i<=sqrt(n);i++) {
-        if (n%i==0) {
-            return false;
-        }
-    }
-    return true;
-}
+const int MOD = (int)(1e9 + 7);
 
-int main(){
+
+int main() {
     ios_base::sync_with_stdio(false);
-	cin.tie(NULL);
-	cout.tie(NULL);
-    int n;cin>>n;
+    cin.tie(NULL);
+
+    int n;cin >> n;
+    int m;cin >> m;
     
-    for (int i = 0;i<n;i++) {
-        cin>>a[i];
-    }
-    for (int i = 0;i<n;i++) {
-        int cur_val = a[i];
-        if (prime (cur_val)) {
-            cout << 0 << " ";
-        } else {
-            cout << a[i] << " ";
+    vector<vector<int>> v;
+
+    for (int i = 1;i <= n;i++) {
+        vector<int> row;
+        for (int j = 1;j <= m;j++) {
+            int value;cin >> value;
+            row.push_back(value);
         }
+        v.push_back(row);
     }
-	return 0;
+
+    for (int i = 0;i < n;i++) {
+        reverse(v[i].begin(), v[i].end());
+    }
+
+    for (int i = 0;i < n;i++) {
+        for (int j = 0;j < m;j++) {
+            cout << v[i][j] << " ";
+        }
+        cout << endl;
+    }
+    return 0;
 }

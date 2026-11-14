@@ -2,7 +2,7 @@
 
 using namespace std;
 const int MOD = 1000000007;
-long long fibo[94] = { 0 }; //fibonacci
+long long fibo[94] = { 0 }; //fibonacci     **lưu ý fibonacci chỉ có 93 - 94 số**
 
 int chuso(long long n) {
     if (n == 0) return 1;
