@@ -2,36 +2,32 @@
 
 using namespace std;
 const int MOD = 1000000007;
-long long a[1000005];
+int a[1000005];
+
+bool bs(int a[], int l, int r, int x) {
+    while (l <= r) {
+        int m = (l + r)/2;
+        if (a[m] == x) return true;
+        else if (a[m]<x) l = m+1;
+        else r = m-1;
+    }
+    return false;
+}
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
-    long long n;cin>>n;
-    long long max_odd = 0, current_odd = 0;
-    long long beg_index = 0, end_index = 0;
-    long long max_sum = 0, current_sum = 0;
+    int n;cin>>n;
     for (int i = 0;i<n;i++) {
         cin>>a[i];
     }
-    for (int i = 0;i<n;i++) {
-        if (a[i]%2==0) {
-            current_odd++;
-            current_sum+=a[i];
-            if (current_odd > max_odd || (current_odd == max_odd && current_sum > max_sum)) {
-                max_odd = current_odd;
-                max_sum = current_sum;
-                end_index = i;
-            }
-        } else {
-            current_odd = 0;
-            current_sum = 0;
-        }
-    }
-    cout << max_odd<<endl;
-    for (int i = end_index - max_odd + 1;i<=end_index;i++) {
-        cout << a[i] << ' ';
+    sort(a, a + n);
+    int q;cin>>q;
+    while (q--) {
+        int x;cin>>x;
+        if (binary_search(a, a + n, x)) cout << "YES\n";
+        else cout << "NO\n";
     }
     return 0;
 }
