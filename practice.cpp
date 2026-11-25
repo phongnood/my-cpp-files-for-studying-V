@@ -1,33 +1,26 @@
 #include <bits/stdc++.h>
 
+#define endl '\n'
+
 using namespace std;
 const int MOD = 1000000007;
-int a[1000005];
+long long a[100005];
 
-bool bs(int a[], int l, int r, int x) {
-    while (l <= r) {
-        int m = (l + r)/2;
-        if (a[m] == x) return true;
-        else if (a[m]<x) l = m+1;
-        else r = m-1;
-    }
-    return false;
-}
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
-    int n;cin>>n;
+    long long n,m;cin>>n>>m;
     for (int i = 0;i<n;i++) {
         cin>>a[i];
     }
-    sort(a, a + n);
-    int q;cin>>q;
-    while (q--) {
-        int x;cin>>x;
-        if (binary_search(a, a + n, x)) cout << "YES\n";
-        else cout << "NO\n";
+    long long ans = a[0];
+    sort(a+1,a+n);
+    for (int i = 1;i<n;i++) {
+        if (i>=n-m) ans += a[i];
+        else ans -= a[i];
     }
+    cout <<ans<<endl;
     return 0;
 }

@@ -15,7 +15,20 @@ bool binary_search(int a[], int l, int r, int x) { // manual code //vất a[] đ
     return false;
 }
 
-
+int pos(long long a[], int l, int r, long long x) { // tìm số lớn hơn x(muốn nhỏ hơn thì thay a[m] < x và chuyển r thành l tự suy)
+    int res = -1;
+    while (l <= r) {
+        int m = (l+r)/2;
+        if (a[m]>x) {
+            res = m;
+            r = m-1;
+        }
+        else {
+            l=m+1;
+        }
+    }
+    return res;
+}
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
